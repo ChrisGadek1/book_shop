@@ -22,10 +22,16 @@ class ChangeDataController extends AbstractController{
             }
             $user = $this->getDoctrine()->getRepository(Users::class)->findOneBy(['login' => $login]);
             if($what == "login"){
+                if(!ctype_alnum($newData)){
+                    return new Response("login może składać się tylko z liter i cyfr");
+                }
                 $user->setLogin($newData);
                 $_SESSION['login'] = $newData;
             }
             else if($what == "email"){
+                if(!filter_var($newData, FILTER_VALIDATE_EMAIL)){
+                    return new Response("podaj poprawny email");
+                }
                 $user->setEmail($newData);
             }
             else{

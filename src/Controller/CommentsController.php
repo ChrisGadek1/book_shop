@@ -25,7 +25,7 @@ class CommentsController extends AbstractController{
                 'ocena' => $comments[$i]->getOcena(),
                 'opinia' => $comments[$i]->getOpinia(),
                 'user' => $comments[$i]->getUser()->getLogin(),
-                'date' => $comments[$i]->getDataDodania()->format('Y-m-d H:i')
+                'date' => $comments[$i]->getDataDodania()->format('Y-m-d')
             );
         }
         if(count($comments) < $numberOfComments) $response[] = array('more' => false);

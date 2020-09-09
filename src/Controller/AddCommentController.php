@@ -28,7 +28,7 @@ class AddCommentController extends AbstractController{
             $opinion->setUser($this->getDoctrine()->getRepository(Users::class)->findOneBy(['login' => $login_send]));
             $opinion->setOcena($ocena);
             $d = new \DateTime();
-            $d->format('Y-m-d H:i');
+            $d->format('Y-m-d');
             $opinion->setDataDodania($d);
             $manager->persist($opinion);
             $manager->flush();

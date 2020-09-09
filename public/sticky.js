@@ -328,7 +328,9 @@ change = function (){
     $(this).parent().append(
         "<div id='data_input'>" +
             "<label class='data' for='"+what+"_input'>Wprowadź nowe dane:</label>"+
-            "<input type='text' class='data' name='"+what+"_input' id='"+what+"_input'>"+
+            "<div id='input_container"+what+"' class='input_container_class data' style='margin: 0px; padding: 0px;'>" +
+                "<input type='text' class='data' name='"+what+"_input' id='"+what+"_input'>" +
+            "</div>"+
             "<div id='"+$(this).parent().attr('id')+"_accept' class='edit_button_1'>Zatwierdź</div>"+
             "<div style='clear: both;' class='clear_both'></div>"+
         "</div>"+
@@ -341,17 +343,25 @@ change = function (){
         let xhtml = new XMLHttpRequest();
         xhtml.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
-                $("#data_input").remove();
-                parent.find(".data").html(newData);
-                if(what == "login"){
-                    login = newData;
-                    $("#login_info").html("Zalogowano: "+login);
+                $("#error_info"+what).remove();
+                if(this.responseText != "ok"){
+                    $("#input_container"+what).append(
+                        "<div style='color: red; font-size: 11.5px; display: inline-block;' id='error_info"+what+"' class='error_input'>"+this.responseText+"</div>"
+                    );
                 }
-                if(what == "email"){
-                    email = newData;
-                }
-                if(what == "address"){
-                    address = newData;
+                else{
+                    $("#data_input").remove();
+                    parent.find(".data").html(newData);
+                    if(what == "login"){
+                        login = newData;
+                        $("#login_info").html("Zalogowano: "+login);
+                    }
+                    if(what == "email"){
+                        email = newData;
+                    }
+                    if(what == "address"){
+                        address = newData;
+                    }
                 }
             }
         };
