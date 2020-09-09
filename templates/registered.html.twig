@@ -1,0 +1,94 @@
+<html lang="pl">
+<head>
+    <meta charset="UTF-8"/>
+    <title>księgarnia</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('stylesheet.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{{ asset('jquery-3.5.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('sticky.js') }}"></script>
+    <script src="{{  asset('https://www.google.com/recaptcha/api.js') }}"></script>
+</head>
+<body>
+<header id="header_main">
+    <div id="header_block">
+        <div id="header_title">
+            <div id="main_tile">Witaj w księgarni internetowej!</div>
+            <div id="login_info">
+                {% if logged != NULL %}
+                    <div>
+                        <div>Zalogowano: {{ login }}</div>
+                        <div><a href="/user" style="text-decoration: underline;">moje konto</a></div>
+                    </div>
+                {% else %}
+                    Nie Zalogowano
+                {% endif %}
+            </div>
+        </div>
+        <div id="main_menu_container">
+            <section id="main_menu">
+                <ol id="menu_option">
+                    <li> <div>Książki</div>
+                        <ol>
+                            <li onclick="redirect('ksiazka','kryminal')"> Kryminały </li>
+                            <li onclick="redirect('ksiazka','fantasy')"> Fantasy </li>
+                            <li onclick="redirect('ksiazka','przygodowa')"> Przygodowe </li>
+                            <li onclick="redirect('ksiazka','romans')"> Romanse </li>
+                            <li onclick="redirect('ksiazka','literatura-piekna')"> Literatura Piękna </li>
+                        </ol>
+                    </li>
+                    <li> <div>Gry planszowe</div>
+                        <ol>
+                            <li onclick="redirect('gra','rodzinne')"> Rodzinne </li>
+                            <li onclick="redirect('gra','imprezowe')"> Imprezowe </li>
+                            <li onclick="redirect('gra','serialowe')"> Serialowe </li>
+                            <li onclick="redirect('gra','dla-dzieci')"> Dla Dzieci </li>
+                            <li onclick="redirect('gra','erotyczne')"> Erotyczne </li>
+                        </ol>
+                    </li>
+                    <li> <div>Inne produkty</div>
+                        <ol>
+                            <li onclick="redirect('inne','ozdoba')"> Ozdoby </li>
+                            <li onclick="redirect('inne','film-na-cd')"> Filmy na CD </li>
+                            <li onclick="redirect('inne','maskotka')"> Maskotki </li>
+                            <li onclick="redirect('inne','scyzoryk')"> Scyzoryki </li>
+                            <li onclick="redirect('inne','zabawka')"> Zabawki </li>
+                        </ol>
+                    </li>
+                    <li> <div>Kontakt</div>
+                        <ol>
+                            <li>Telefon</li>
+                            <li>E-mail</li>
+                            <li>Nasz Adres</li>
+                        </ol>
+
+                    </li>
+                    <li>
+                        <div id="log_in_or_out">
+                            {% if logged != NULL %}
+                                Wyloguj
+                            {% else %}
+                                Zaloguj
+                            {% endif %}
+                        </div>
+                    </li>
+                </ol>
+                <div style="clear: both"></div>
+            </section>
+        </div>
+    </div>
+
+</header>
+        <article style="text-align: center;">
+            <div id="form_container">
+                <div>Dziękujemy za rejestrację w naszym sklepie!<br>
+                    Można zalogować się już <a href="{{ asset('/login') }}">pod tym adresem</a>
+                </div>
+
+            </div>
+        </article>
+
+
+
+    </body>
+
+</html>
