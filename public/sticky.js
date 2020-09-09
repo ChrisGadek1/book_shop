@@ -382,7 +382,7 @@ function getOrders(){
                 "</div>"
             );
             let i = 0;
-            for(; i < response.length - 3 && i < 3; i++){
+            for(; i < response.length - 3 && i < 7; i++){
                 $("#orders_main").append(
                     "<div class='orders' id='order_"+i+1+"'>" +
                         "<div class='inner_order'><img src='/images/test_image.jpg'></div>"+

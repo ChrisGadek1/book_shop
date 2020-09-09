@@ -17,7 +17,7 @@ class ReadOrdersController extends AbstractController{
     function readOrders(){
         $login = $_REQUEST['login'];
         $page = $_REQUEST['page'];
-        $numberOfRecords = 3;
+        $numberOfRecords = 7;
         $user = $this->getDoctrine()->getRepository(Users::class)->findOneBy(['login' => $login]);
         $orders = $this->getDoctrine()->getRepository(Orders::class)->getUserOrders($user->getId());
         $price = 0;
