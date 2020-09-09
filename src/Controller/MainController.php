@@ -20,7 +20,7 @@ class MainController extends AbstractController
             $login = $_SESSION['login'];
         }
         $entityManager = $this->getDoctrine()->getManager();
-        for($i = 0; $i < 1000; $i++){
+        /*for($i = 0; $i < 1000; $i++){
             $book = new Books();
             $categories = array("ozdoba","film na cd", "maskotka", "scyzoryk", "zabawka");
             $title = "Przykladowa nazwa ".$i;
@@ -41,7 +41,7 @@ class MainController extends AbstractController
             $book->setTitle($title);
             $entityManager->persist($book);
             $entityManager->flush();
-        }
+        }*/
         $books = $this->getDoctrine()->getRepository(Books::class)->get4newest();
         return $this->render('index.html.twig',['logged' => $logged, 'login' => $login, 'books' => $books]);
     }
