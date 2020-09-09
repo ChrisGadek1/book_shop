@@ -22,10 +22,10 @@ class MainController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         for($i = 0; $i < 1000; $i++){
             $book = new Books();
-            $categories = array("romans","literatura piekna","kryminal","fantasy","przygodowa");
-            $title = "Przykladowy tytul ksiazki ".$i;
-            $desc = "Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Nazywał się w końcu dzieje chciano zamknąć w moim dom i z Bonapartą. tu świeccy, do marszu! Pójdziem, czy moda odmieniła z opieki nie wyszli witać, ale nic - nowe dziwo w której wytryskał rumieniec, ilekroć z dziecinną radością pociągnął za stołem siadał i zalety Ściągnęły wzrok stryja ku drzwiom odprowadzał i zgasło. I tak rzadka ciche grusze siedzą. Śród takich pól malowanych zbożem rozmaitem wyzłacanych ";
-            $author = array("Adam Mickiewicz", "Napoleon Bonaparte","Bolesław Prus","J.K.Rowling","Grzegorz Brzęczyszczykiewicz");
+            $categories = array("ozdoba","film na cd", "maskotka", "scyzoryk", "zabawka");
+            $title = "Przykladowa nazwa ".$i;
+            $desc = "Gdzie bursztynowy świerzop, gryka jak dżumy jakiej cały las drogi i posiedzenie nasze spraw bernardyńskie. cóż te łupy zdobyte. Tuż myśliwców herbowne klejnoty wyryte i raptem paniczyki młode z Soplicą: i utrzymywał, że były rączki, co prędzej w ziemstwie, potem się położył! Co by wychowanie poznano stołeczne. To nie rozwity, lecz podmurowany. Świeciły się dziś toczy się krzywi i ze żniwa i jakoby zlewa. I przyjezdny gość, krewny albo sam król ją nudzi rzecz zakonna, to mówiąc, że spod ramion wytknął palce i ";
+            $author = "-";
             $price = rand(10,100);
             $img_src = rand(1,10);
             $year = rand(2013,2020);
@@ -36,7 +36,7 @@ class MainController extends AbstractController
             $book->setDescribtion($desc);
             $book->setPrice($price);
             $book->setDateOfAdding(\DateTime::createFromFormat('Y-m-d', $year."-".$month."-".$day));
-            $book->setCategory("ksiazka");
+            $book->setCategory("inne");
             $book->setImageSrc($img_src);
             $book->setTitle($title);
             $entityManager->persist($book);
