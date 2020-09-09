@@ -77,7 +77,8 @@ class RegisterController extends AbstractController{
             }
             if($everythingOK){
                 try{
-                    $secret = "6LftqcMZAAAAAIFWFlUSgy94vFlL6uY8ojwkpzwf";
+                    //$secret = "6LftqcMZAAAAAIFWFlUSgy94vFlL6uY8ojwkpzwf"; //klucz na localhost
+                    $secret = "6LfaKcoZAAAAAGmZ8hnwayEYLSuYvVwB6VpfE5_k"; //klucz na heroku
                     $check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
                     $answer = json_decode($check);
                     if($answer->success == false){
