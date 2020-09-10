@@ -14,4 +14,17 @@ The user interface is made in polish language.
       - Doctrine
 
 # screenshots
-![Alt text](/public/screenshots/Screenshot_main.png)
+![Alt text](/public/screenshots/Screenshot_main.png "Main site of the book shop")
+Main site of the book shop
+
+
+![Alt text](/public/screenshots/Screenshot_register.png "Registration Screen")
+Registration Screen
+
+
+![Alt text](/public/screenshots/Screenshot_find_books_after_login.png "After login screen")
+View after login and choose of books category
+
+![Alt text](/public/screenshots/Screenshot_user_panel.png "View of the logged user panel")
+View of the logged user panel
+
